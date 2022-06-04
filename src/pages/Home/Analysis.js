@@ -35,15 +35,21 @@ const Analysis = () => {
 
                               <div className="analysis grid lg:grid-cols-3 grid-cols-1 gap-5 ">
                                     {/* card 1  */}
+
+                                    
                                     
                                     <div onClick={()=> navigate('/webDevelopment')} class="card w-96 bg-base-100 shadow-xl border-4 cursor-pointer">
                                           <div class="card-body">
+
                                               
-                                                <p className='text-xl'>Web Development Skill</p>
+                                          <p className='text-xl'>Web Development Skill</p>
                                           </div>
                                     </div>
                                     {/* card 2  */}
-                                    <div class="card w-96 bg-base-100 shadow-xl border-4">
+                                    <div
+                                    onClick={()=> navigate('/appDevelopment')}
+                                    
+                                    class="card w-96 bg-base-100 shadow-xl border-4">
                                           <div class="card-body">
                                                 
                                           <p className='text-xl'>App Development Skill</p>

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import LodaingSpiner from './LodaingSpiner';
-import WebSkillRow from './WebSkillRow';
+import AppSkillRow from './AppSkillRow'
 
-const WebDevelopment = () => {
+const AppDevelopment = () => {
       const navigate = useNavigate()
 
-      const { data: skills, isLoading, refetch } = useQuery('/webSkill', () => fetch('http://localhost:5000/webSkill').then(res => res.json()))
+      const { data: skills, isLoading, refetch } = useQuery('/appSkill', () => fetch('http://localhost:5000/appSkill').then(res => res.json()))
       
      
 
@@ -15,10 +15,9 @@ const WebDevelopment = () => {
             return <LodaingSpiner></LodaingSpiner>
       }
 
-          
       return (
             <div className='max-w-7xl m-auto px-3 my-10'>
-                  <h1 className='text-2xl text-center'>Chouse Your Web Development Skills</h1>
+                  <h1 className='text-2xl text-center'>Chouse Your App Development Skills</h1>
 
                   <div className="all-skills mx-auto my-10">
                         <div class="overflow-x-auto">
@@ -35,12 +34,12 @@ const WebDevelopment = () => {
                                     <tbody>
                                           {/* <!-- row 1 --> */}
                                           {
-                                                skills.map(skill => <WebSkillRow
+                                                skills.map(skill => <AppSkillRow
                                                 key={skill._id}
                                                 skill={skill}
                                                 refetch={refetch}
                                                 
-                                                ></WebSkillRow>  
+                                                ></AppSkillRow>  
                                                       
                                                       )
                                           }
@@ -75,4 +74,4 @@ const WebDevelopment = () => {
       );
 };
 
-export default WebDevelopment;
+export default AppDevelopment;
