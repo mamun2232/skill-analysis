@@ -82,6 +82,6 @@ const WebSkillRow = ({ skill  , refetch}) => {
          
             
       );
-};
+}
 
 export default WebSkillRow;
