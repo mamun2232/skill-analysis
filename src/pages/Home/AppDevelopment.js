@@ -7,13 +7,36 @@ import AppSkillRow from './AppSkillRow'
 const AppDevelopment = () => {
       const navigate = useNavigate()
 
-      const { data: skills, isLoading, refetch } = useQuery('/appSkill', () => fetch('http://localhost:5000/appSkill').then(res => res.json()))
-      
-     
+      const { data: skills, isLoading, refetch } = useQuery('/appSkill', () => fetch('https://limitless-cliffs-91893.herokuapp.com/appSkill').then(res => res.json()))
 
-      if(isLoading){
+
+
+      if (isLoading) {
             return <LodaingSpiner></LodaingSpiner>
       }
+
+      const adedFeildHendeler = () => {
+
+
+            fetch('https://limitless-cliffs-91893.herokuapp.com/appskill', {
+                  method: "POST",
+                  headers: {
+                        'Content-type': 'application/json;',
+                  },
+                  body: JSON.stringify([...skills, { name: "" }])
+
+
+            }
+                  .then(res => res.json())
+                  .then(data => {
+                        console.log(data);
+                  })
+            )
+
+      }
+
+      
+
 
       return (
             <div className='max-w-7xl m-auto px-3 my-10'>
@@ -35,32 +58,25 @@ const AppDevelopment = () => {
                                           {/* <!-- row 1 --> */}
                                           {
                                                 skills.map(skill => <AppSkillRow
-                                                key={skill._id}
-                                                skill={skill}
-                                                refetch={refetch}
-                                                
-                                                ></AppSkillRow>  
-                                                      
-                                                      )
+                                                      key={skill._id}
+                                                      skill={skill}
+                                                      refetch={refetch}
+
+                                                ></AppSkillRow>
+
+                                                )
                                           }
-                                                                                    
 
 
-                                          {/* <tr>
-                                                <th>Css</th>
-                                                <td>
-                                                <input onClick={() => setSelected(!selected)} type="checkbox" checked={selected} class="checkbox checkbox-accent" />
 
-                                                </td>
 
-                                          </tr> */}
-                                          
+
 
 
                                     </tbody>
                               </table>
                               <div className='my-5'>
-                              <p>Add item</p>
+                                    <p className='btn' onClick={adedFeildHendeler} >Add item</p>
                               </div>
 
 
@@ -68,7 +84,7 @@ const AppDevelopment = () => {
                   </div>
 
                   <div className="confrom-btn text-right">
-                        <button className='btn' onClick={()=> navigate('/')} >Done</button>
+                        <button className='btn' onClick={() => navigate('/')} >Done</button>
                   </div>
             </div>
       );

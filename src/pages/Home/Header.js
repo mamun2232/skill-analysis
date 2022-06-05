@@ -19,7 +19,7 @@ const Header = () => {
                         </div>
                         <div class="navbar-center">
                               <a class="btn btn-ghost normal-case text-xl">
-                                    <Link to='/'>Skills Analysis</Link>
+                                    <Link to='/'>SKILLS ANALYSIS</Link>
                               
                               </a>
                         </div>

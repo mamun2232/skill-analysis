@@ -14,7 +14,7 @@ const AppSkillRow = ({skill , refetch}) => {
       const selectedHundeler = (id) => {
 
            
-            fetch(`http://localhost:5000/appSkill/${id}`, {
+            fetch(`https://limitless-cliffs-91893.herokuapp.com/appSkill/${id}`, {
                   method: 'PATCH',
                 
                   headers: {
@@ -30,7 +30,7 @@ const AppSkillRow = ({skill , refetch}) => {
 
       const updatelSectedHundeler = (id) => {
             console.log(id);
-            fetch(`http://localhost:5000/appSkillUpdate/${id}`, {
+            fetch(`https://limitless-cliffs-91893.herokuapp.com/appSkillUpdate/${id}`, {
                   method: 'PATCH',
                 
                   headers: {

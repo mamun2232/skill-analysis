@@ -5,3 +5,10 @@
 .all-skills{
       width: 650px;
 }
+
+@media only screen and (max-width: 500px) {
+      .all-skills{
+            width: 350px;
+      }
+      
+    }

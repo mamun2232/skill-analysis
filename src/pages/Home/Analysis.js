@@ -7,19 +7,19 @@ import LodaingSpiner from './LodaingSpiner';
 
 const Analysis = () => {
       const navigate = useNavigate()
-   
-   
-      const { data: skills, isLoading, refetch } = useQuery('/webSkill', () => fetch('http://localhost:5000/webSkill').then(res => res.json()))
+
+
+      const { data: skills, isLoading, refetch } = useQuery('/webSkill', () => fetch('https://limitless-cliffs-91893.herokuapp.com/webSkill').then(res => res.json()))
       console.log(skills);
 
-      if(isLoading){
+      if (isLoading) {
             return <LodaingSpiner></LodaingSpiner>
       }
 
       // 
 
-      
-     
+
+
 
 
 
@@ -28,41 +28,41 @@ const Analysis = () => {
             <div>
                   <div class="card card-compact w-full bg-base-100 shadow-xl">
                         <figure className=''><img className='w-full' src={banner} alt="banner" /></figure>
-                        <div class="card-body">
+                        <div class="card-body px-0">
 
 
-                              
 
-                              <div className="analysis grid lg:grid-cols-3 grid-cols-1 gap-5 ">
+
+                              <div className="analysis grid lg:grid-cols-2 grid-cols-1 gap-5">
                                     {/* card 1  */}
 
-                                    
-                                    
-                                    <div onClick={()=> navigate('/webDevelopment')} class="card w-96 bg-base-100 shadow-xl border-4 cursor-pointer">
+
+
+                                    <div onClick={() => navigate('/webDevelopment')} class="card lg:w-96 bg-base-100 shadow-xl border-4 cursor-pointer">
                                           <div class="card-body">
 
-                                              
-                                          <p className='text-xl'>Web Development Skill</p>
+
+                                                <p className='text-xl'>Web Development Skill</p>
                                           </div>
                                     </div>
                                     {/* card 2  */}
                                     <div
-                                    onClick={()=> navigate('/appDevelopment')}
-                                    
-                                    class="card w-96 bg-base-100 shadow-xl border-4">
+                                          onClick={() => navigate('/appDevelopment')}
+
+                                          class="card lg:w-96 bg-base-100 shadow-xl border-4">
                                           <div class="card-body">
-                                                
-                                          <p className='text-xl'>App Development Skill</p>
+
+                                                <p className='text-xl'>App Development Skill</p>
                                           </div>
                                     </div>
 
                                     {/* card - 3 */}
-                                    <div class="card w-96 bg-base-100 shadow-xl border-4">
+                                    {/* <div class="card w-96 bg-base-100 shadow-xl border-4">
                                           <div class="card-body">
                                                 
                                           <p className='text-xl'>Over Development Skill</p>
                                           </div>
-                                    </div>
+                                    </div> */}
                               </div>
                         </div>
                   </div>

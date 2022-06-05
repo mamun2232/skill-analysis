@@ -7,13 +7,13 @@ const WebSkillRow = ({ skill  , refetch}) => {
       
 
 
-      const { _id, name, seleted } = skill
+      const { _id, name, seleted , names } = skill
 
 
       const selectedHundeler = (id) => {
 
            
-            fetch(`http://localhost:5000/webSkill/${id}`, {
+            fetch(`https://limitless-cliffs-91893.herokuapp.com/webSkill/${id}`, {
                   method: 'PATCH',
                 
                   headers: {
@@ -29,7 +29,7 @@ const WebSkillRow = ({ skill  , refetch}) => {
 
       const updatelSectedHundeler = (id) => {
             console.log(id);
-            fetch(`http://localhost:5000/webSkillUpdate/${id}`, {
+            fetch(`https://limitless-cliffs-91893.herokuapp.com/webSkillUpdate/${id}`, {
                   method: 'PATCH',
                 
                   headers: {
@@ -44,8 +44,10 @@ const WebSkillRow = ({ skill  , refetch}) => {
       }
 
       return (
+         
             <div>
                   <tr className='border-5'>
+                       
                         <td className='w-full'>{name}</td>
                         <td>
 
@@ -65,12 +67,19 @@ const WebSkillRow = ({ skill  , refetch}) => {
 
                                     }
 
+                                   
+                                        
+                                 
+
 
                               </div>
                         </td>
                   </tr>
+
                   
             </div>
+
+         
             
       );
 };
